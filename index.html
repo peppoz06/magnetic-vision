@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magnetic Vision</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video id="camera" autoplay playsinline muted></video>
+  <canvas id="overlay"></canvas>
+
+  <div id="ui">
+    <h1>MAGNETIC VISION</h1>
+    <p>Simulazione immersiva della magnetoricezione aviaria</p>
+
+    <button id="startBtn">Attiva esperienza</button>
+
+    <div id="data">
+      <span>Bussola: <b id="heading">--</b>°</span>
+      <span>Lat: <b id="lat">--</b></span>
+      <span>Lon: <b id="lon">--</b></span>
+      <span>Intensità: <b id="intensity">--</b></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
