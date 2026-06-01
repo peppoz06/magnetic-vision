@@ -2,28 +2,54 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#02070d" />
   <title>Magnetic Vision</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <video id="camera" autoplay playsinline muted></video>
-  <canvas id="overlay"></canvas>
+  <main id="app">
+    <video id="camera" autoplay playsinline muted></video>
+    <canvas id="overlay"></canvas>
 
-  <div id="ui">
-    <h1>MAGNETIC VISION</h1>
-    <p>Simulazione immersiva della magnetoricezione aviaria</p>
+    <section id="start-screen">
+      <div class="orb"></div>
+      <h1>MAGNETIC<br><em>VISION</em></h1>
+      <p>
+        Una percezione magnetica in tempo reale ispirata alla magnetoricezione degli uccelli migratori.
+      </p>
+      <button id="start-btn">ATTIVA ESPERIENZA</button>
+      <small>Richiede camera, bussola/giroscopio e possibilmente GPS. Usa HTTPS o Live Server.</small>
+    </section>
 
-    <button id="startBtn">Attiva esperienza</button>
+    <section id="hud" class="hidden">
+      <div class="topbar">
+        <div>
+          <strong>MAGNETIC VISION</strong>
+          <span>campo fluido + pulsazioni</span>
+        </div>
+        <div class="coords">
+          <span id="lat">lat --</span>
+          <span id="lon">lon --</span>
+        </div>
+      </div>
 
-    <div id="data">
-      <span>Bussola: <b id="heading">--</b>°</span>
-      <span>Lat: <b id="lat">--</b></span>
-      <span>Lon: <b id="lon">--</b></span>
-      <span>Intensità: <b id="intensity">--</b></span>
-    </div>
-  </div>
+      <div class="compass">
+        <canvas id="compass" width="96" height="96"></canvas>
+        <span>NORD MAGNETICO</span>
+      </div>
 
-  <script src="script.js"></script>
+      <div class="panel">
+        <div class="row"><span>Bussola</span><b id="heading">--°</b></div>
+        <div class="row"><span>Inclinazione</span><b id="tilt">--°</b></div>
+        <div class="row"><span>Intensità</span><div class="bar"><i id="signal-bar"></i></div></div>
+        <div id="status">percezione attiva</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/sensors.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
